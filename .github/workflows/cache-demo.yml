@@ -1,0 +1,21 @@
+name: Cache Demo
+
+on: [push]  # Runs on every push to any branch
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest  # Free Linux VM
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Grabs your repo files
+        
+      - name: Prime cache  # Exact name required by assignment
+        id: cache-step
+        uses: actions/cache@v4  # Latest version as specified
+        with:
+          path: ~/.cache/demo  # Folder to cache (fake deps dir)
+          key: cache-cb21e29   # Exact key required by assignment
+      
+      - name: Show cache result
+        run: echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
