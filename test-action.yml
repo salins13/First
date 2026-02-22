@@ -1,0 +1,17 @@
+name: My First Action  # Workflow name (shows in GitHub UI)
+
+on: [push]  # Triggers on any push to the repo
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Uses GitHub's free Linux runner (kitchen)
+
+    steps:
+      - name: Checkout code  # Step 1: Grabs your repo files
+        uses: actions/checkout@v4  # Reusable action from GitHub
+
+      - name: 23f1001437@ds.study.iitm.ac.in  # YOUR REQUIRED STEP (just echoes)
+        run: echo "Hello from my GitHub Action!"
+
+      - name: List files  # Bonus step: Shows it works
+        run: ls -la
